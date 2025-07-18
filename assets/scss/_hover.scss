@@ -1,0 +1,17 @@
+a:hover {
+  @media (prefers-color-scheme: dark) {
+    color: $dark-hover-color;
+  }
+
+  @media (prefers-color-scheme: light) {
+    color: $light-hover-color;
+  }
+
+  [data-theme=dark] & {
+    color: $dark-hover-color;
+  }
+
+  [data-theme=light] & {
+    color: $light-hover-color;
+  }
+}
