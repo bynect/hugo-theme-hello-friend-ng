@@ -1,7 +1,7 @@
 {{ define "main" }}
   <main class="post">
 
-    <div class="post-info">
+    <div class="post-info" style="display:flex;justify-content: space-between;align-items: center;">
       <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
           <circle cx="12" cy="12" r="10"></circle>
@@ -15,6 +15,15 @@
           {{ end}}
         {{ end }}
       </p>
+
+      {{ with .Params.authors }}
+        <div>Authors:
+          {{ range $index, $author := . }}
+          {{ if $index }}, {{ end }}
+            {{ $author }}
+          {{ end }}
+        </div>
+      {{ end }}
     </div>
 
     <article>
@@ -29,7 +38,7 @@
       {{ if .Params.Cover }}
         <figure class="post-cover">
           <img src="{{ .Params.Cover | absURL }}" alt="{{ .Title }}" />
-          
+
           {{ if .Params.CoverCaption }}
             <figcaption class="center">{{ .Params.CoverCaption | markdownify }}</figcaption>
           {{ end }}
@@ -88,11 +97,11 @@
           {{ dateFormat "2006-01-02 15:04" .Date.Local }}
         {{ end }}
 
-        {{ if .Lastmod }} 
+        {{ if .Lastmod }}
           {{ if not (eq .Lastmod .Date )}}
             {{ if .Site.Params.dateformNumTime }}
               ({{ i18n "lastModified" }}: {{ dateFormat .Site.Params.dateformNumTime .Lastmod.Local }})
-            {{ else }} 
+            {{ else }}
               ({{ i18n "lastModified" }}: {{ dateFormat "2006-01-02 15:04" .Lastmod.Local }})
             {{ end }}
           {{ end }}
@@ -115,8 +124,8 @@
 
     {{- if .Site.Params.EnableSharingButtons }}
       <hr />
-      <div class="sharing-buttons">
-        {{ partial "sharing-buttons.html" . }}
+      <div class="sharing-buttons" style="display:inline-block;">
+	Share {{- partial "sharing-buttons.html" . -}}
       </div>
     {{- end }}
 
