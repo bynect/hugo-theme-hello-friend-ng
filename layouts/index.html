@@ -8,11 +8,11 @@
             {{ if .Site.Params.Portrait.Path }}
             {{- $image := resources.Get .Site.Params.Portrait.Path -}}
             {{- with $image -}}
-               <img src="{{ .RelPermalink }}" class="circle" alt="{{ $.Site.Params.Portrait.Alt }}" style="max-width:{{ $.Site.Params.Portrait.MaxWidth }}" />
+               <img src="{{ .RelPermalink }}" loading="eager" class="circle" alt="{{ $.Site.Params.Portrait.Alt }}" style="max-width:{{ $.Site.Params.Portrait.MaxWidth }}" />
             {{- end -}}
             {{ end }}
 
-            <h1>{{ .Site.Title }}</h1>
+            <h1 style="margin-top:0;">{{ .Site.Title }}</h1>
 
             {{ partial "subtitle.html" . }}
 
@@ -22,5 +22,37 @@
                 </div>
             {{- end }}
         </div>
+
+        <hr style="margin-top:1em;">
+
+        <div class="posts">
+        {{ $posts := where .Site.RegularPages "Section" "posts" }}
+        {{ $recent := first 5 $posts }}
+
+          <ul class="posts-list">
+              {{ range $recent }}
+                  <li class="post-item">
+                    <div class="post-item-inner" style="display:flex;flex-direction:column;justify-content:space-between">
+                      <a href="{{.Permalink}}">
+                          <span class="post-title">{{.Title}}</span>
+                          <span class="post-day">
+                              {{ if .Site.Params.dateformShort }}
+                                  {{ time.Format .Site.Params.dateformShort .Date }}
+                              {{ else }}
+                                  {{ time.Format "Jan 2" .Date }}
+                              {{ end }}
+                          </span>
+                      </a>
+
+                      <div class="tags">
+                        {{- range .Params.tags -}}
+                          <span class="tag-pill">{{.}}</span>
+                        {{ end }}
+                      </div>
+                    </div>
+                  </li>
+              {{ end }}
+          </ul>
+      </div>
     </main>
 {{ end }}

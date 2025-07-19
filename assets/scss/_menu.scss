@@ -21,11 +21,29 @@
 
   @media #{$media-size-phone} {
     position: absolute;
-    top: 50px;
-    right: 0;
+    top: 70px;
+    right: 20px;
     border: none;
     margin: 0;
     padding: 10px;
+
+    background: $light-background-secondary;
+
+    @media (prefers-color-scheme: dark) {
+      background: $dark-background-secondary;
+    }
+
+    @media (prefers-color-scheme: light) {
+      background: $light-background-secondary;
+    }
+
+    [data-theme=dark] & {
+      background: $dark-background-secondary;
+    }
+
+    [data-theme=light] & {
+      background: $light-background-secondary;
+    }
   }
 
   &__inner {
@@ -84,22 +102,22 @@
 
 
 .submenu {
-  background: $light-background-header;
+  background: $light-background-secondary;
 
   @media (prefers-color-scheme: dark) {
-    background: $dark-background-header;
+    background: $dark-background-secondary;
   }
 
   @media (prefers-color-scheme: light) {
-    background: $light-background-header;
+    background: $light-background-secondary;
   }
 
   [data-theme=dark] & {
-    background: $dark-background-header;
+    background: $dark-background-secondary;
   }
 
   [data-theme=light] & {
-    background: $light-background-header;
+    background: $light-background-secondary;
   }
 
   ul {
@@ -121,18 +139,18 @@
   .dropdown-content {
     display: none;
     position: absolute;
-    background: $dark-background-header;
+    background: $dark-background-secondary;
 
     @media (prefers-color-scheme: light) {
-      background: $light-background-header;
+      background: $light-background-secondary;
     }
-    
+
     [data-theme=dark] & {
-      background: $dark-background-header;
+      background: $dark-background-secondary;
     }
-  
+
     [data-theme=light] & {
-      background: $light-background-header;
+      background: $light-background-secondary;
     }
   }
 
@@ -144,18 +162,18 @@
   }
 
   .dropdown-content a:hover {
-    background: $dark-background-header;
-    
+    background: $dark-background-secondary;
+
     @media (prefers-color-scheme: light) {
-      background: $light-background-header;
+      background: $light-background-secondary;
     }
 
     [data-theme=dark] & {
-      background: $dark-background-header;
+      background: $dark-background-secondary;
     }
-  
+
     [data-theme=light] & {
-      background: $light-background-header;
+      background: $light-background-secondary;
     }
   }
 

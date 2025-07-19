@@ -16,15 +16,15 @@
     @media (prefers-color-scheme: dark) {
       border-bottom: 1px solid $dark-border-color;
     }
-  
+
     @media (prefers-color-scheme: light) {
       border-bottom: 1px solid $light-border-color;
     }
-  
+
     [data-theme=dark] & {
       border-bottom: 1px solid $dark-border-color;
     }
-  
+
     [data-theme=light] & {
       border-bottom: 1px solid $light-border-color;
     }
@@ -48,6 +48,7 @@
   }
 
   .post {
+    padding-bottom: 0.5em;
     &-title {
       font-size: 1rem;
       margin: 5px 0 5px 0;

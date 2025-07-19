@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /* Light theme color */
-$light-background: #fff;
+$light-background: #fafafa; /*#fff;*/
 $light-background-secondary: #eaeaea;
 $light-background-header: #fafafa;
 $light-color: #222;
@@ -13,8 +13,9 @@ $light-table-color: #dcdcdc;
 $light-hover-color: #16a085;
 
 /* Dark theme colors */
-$dark-background: #232425;
-$dark-background-secondary: #3b3d42;
+$dark-background: #1b1c1d; /*#232425;*/
+$dark-background-secondary: #232425; /*#3b3d42;*/
+
 $dark-background-header: #1b1c1d;
 $dark-color: #a9a9b3;
 $dark-color-variant: white;

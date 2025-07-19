@@ -77,3 +77,24 @@
 {{- if $.Site.Params.plausibleDataDomain }}
     <script defer data-domain="{{ .Site.Params.plausibleDataDomain }}" src="{{ .Site.Params.plausibleScriptSource }}"></script>
 {{- end}}
+
+
+<!-- Preload logos -->
+{{- if .Site.Params.Logo.path -}}
+{{- $logo := resources.Get .Site.Params.Logo.path -}}
+{{- if $logo -}}
+  {{- $ext := lower (path.Ext $logo.Name) -}}
+  {{- $type := cond (eq $ext ".svg") "image/svg+xml" (cond (eq $ext ".webp") "image/webp" (cond (eq $ext ".jpg") "image/jpeg" (cond (eq $ext ".jpeg") "image/jpeg" "image/png"))) -}}
+  <link rel="preload" as="image" href="{{ $logo.RelPermalink }}" type="{{ $type }}" />
+{{- end -}}
+{{- end -}}
+
+
+{{ if and .IsHome (.Site.Params.Portrait.Path) (ne .Site.Params.Portrait.Path .Site.Params.Logo.path) }}
+{{- $logo := resources.Get .Site.Params.Portrait.Path -}}
+{{- if $logo -}}
+  {{- $ext := lower (path.Ext $logo.Name) -}}
+  {{- $type := cond (eq $ext ".svg") "image/svg+xml" (cond (eq $ext ".webp") "image/webp" (cond (eq $ext ".jpg") "image/jpeg" (cond (eq $ext ".jpeg") "image/jpeg" "image/png"))) -}}
+  <link rel="preload" as="image" href="{{ $logo.RelPermalink }}" type="{{ $type }}" />
+{{- end -}}
+{{- end -}}

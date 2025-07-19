@@ -3,7 +3,7 @@
         {{ if .Site.Params.Logo.path }}
           {{- $image := resources.Get .Site.Params.Logo.path -}}
           {{- with $image -}}
-            <img src="{{ .RelPermalink }}" alt="{{ $.Site.Params.Logo.alt }}" />
+            <img src="{{ .RelPermalink }}" loading="eager" width="{{ .Width }}" height="{{ .Height }}" class="logo" alt="{{ $.Site.Params.Logo.alt }}" />
           {{- end -}}
         {{ end }}
         {{ if .Site.Params.Logo.logoText }}
