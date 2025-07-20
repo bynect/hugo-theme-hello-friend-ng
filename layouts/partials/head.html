@@ -11,6 +11,26 @@
 <meta name="theme-color" content="{{ .Site.Params.themeColor }}" />
 <link rel="canonical" href="{{ .Permalink }}" />
 
+<!-- Preload logos -->
+{{- if .Site.Params.Logo.path -}}
+{{- $logo := resources.Get .Site.Params.Logo.path -}}
+{{- if $logo -}}
+  {{- $ext := lower (path.Ext $logo.Name) -}}
+  {{- $type := cond (eq $ext ".svg") "image/svg+xml" (cond (eq $ext ".webp") "image/webp" (cond (eq $ext ".jpg") "image/jpeg" (cond (eq $ext ".jpeg") "image/jpeg" "image/png"))) -}}
+  <link rel="preload" as="image" href="{{ $logo.RelPermalink }}" type="{{ $type }}" />
+{{- end -}}
+{{- end -}}
+
+{{- if and .IsHome (.Site.Params.Portrait.Path) (ne .Site.Params.Portrait.Path .Site.Params.Logo.path) -}}
+{{- $logo := resources.Get .Site.Params.Portrait.Path -}}
+{{- if $logo -}}
+  {{- $ext := lower (path.Ext $logo.Name) -}}
+  {{- $type := cond (eq $ext ".svg") "image/svg+xml" (cond (eq $ext ".webp") "image/webp" (cond (eq $ext ".jpg") "image/jpeg" (cond (eq $ext ".jpeg") "image/jpeg" "image/png"))) -}}
+  <link rel="preload" as="image" href="{{ $logo.RelPermalink }}" type="{{ $type }}" />
+{{- end -}}
+{{- end -}}
+
+
 {{ block "title" . }}
     <title>
         {{ if .IsHome }}
@@ -73,31 +93,5 @@
 {{- if .Site.Config.Services.GoogleAnalytics.ID }}
     {{ template "_internal/google_analytics.html" . }}
 {{- end }}
-
-<!-- Plausible.io -->
-{{- if $.Site.Params.plausibleDataDomain }}
-    <script defer data-domain="{{ .Site.Params.plausibleDataDomain }}" src="{{ .Site.Params.plausibleScriptSource }}"></script>
-{{- end}}
-
-
-<!-- Preload logos -->
-{{- if .Site.Params.Logo.path -}}
-{{- $logo := resources.Get .Site.Params.Logo.path -}}
-{{- if $logo -}}
-  {{- $ext := lower (path.Ext $logo.Name) -}}
-  {{- $type := cond (eq $ext ".svg") "image/svg+xml" (cond (eq $ext ".webp") "image/webp" (cond (eq $ext ".jpg") "image/jpeg" (cond (eq $ext ".jpeg") "image/jpeg" "image/png"))) -}}
-  <link rel="preload" as="image" href="{{ $logo.RelPermalink }}" type="{{ $type }}" />
-{{- end -}}
-{{- end -}}
-
-
-{{ if and .IsHome (.Site.Params.Portrait.Path) (ne .Site.Params.Portrait.Path .Site.Params.Logo.path) }}
-{{- $logo := resources.Get .Site.Params.Portrait.Path -}}
-{{- if $logo -}}
-  {{- $ext := lower (path.Ext $logo.Name) -}}
-  {{- $type := cond (eq $ext ".svg") "image/svg+xml" (cond (eq $ext ".webp") "image/webp" (cond (eq $ext ".jpg") "image/jpeg" (cond (eq $ext ".jpeg") "image/jpeg" "image/png"))) -}}
-  <link rel="preload" as="image" href="{{ $logo.RelPermalink }}" type="{{ $type }}" />
-{{- end -}}
-{{- end -}}
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
