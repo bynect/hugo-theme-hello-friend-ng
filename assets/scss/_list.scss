@@ -1,33 +1,10 @@
 .posts {
   width: 100%;
-  max-width: 800px;
   text-align: left;
   padding: 20px;
-  margin: 20px auto;
 
   @media #{$media-size-tablet} {
     max-width: 660px;
-  }
-
-  &:not(:last-of-type) {
-    // Default
-    border-bottom: 1px solid $light-border-color;
-
-    @media (prefers-color-scheme: dark) {
-      border-bottom: 1px solid $dark-border-color;
-    }
-
-    @media (prefers-color-scheme: light) {
-      border-bottom: 1px solid $light-border-color;
-    }
-
-    [data-theme=dark] & {
-      border-bottom: 1px solid $dark-border-color;
-    }
-
-    [data-theme=light] & {
-      border-bottom: 1px solid $light-border-color;
-    }
   }
 
   &-group {

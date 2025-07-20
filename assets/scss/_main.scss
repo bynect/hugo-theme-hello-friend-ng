@@ -3,6 +3,7 @@ html {
   line-height: 1.6;
   letter-spacing: 0.06em;
   scroll-behavior: smooth;
+  width: 100%;
 }
 
 *,
@@ -12,6 +13,7 @@ html {
 }
 
 body {
+  width: 100%;
   margin: 0;
   padding: 0;
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Roboto",
@@ -339,7 +341,6 @@ ol ol {
   flex-direction: column;
   flex: 1 auto;
   align-items: center;
-  justify-content: center;
   margin: 0;
 
   @media #{$media-size-phone} {
@@ -427,4 +428,9 @@ hr {
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;
+}
+
+main {
+  width: 100%;
+  max-width: 45%;
 }
