@@ -1,9 +1,8 @@
 .post {
   width: 100%;
-  max-width: 800px;
+  max-width: #{'max(720px, 40%)'};
   text-align: left;
   padding: 20px;
-  margin: 20px auto;
   @media #{$media-size-tablet} {
     max-width: 600px;
   }
@@ -135,17 +134,17 @@
         background: $dark-background;
         color: $dark-color-secondary;
       }
-    
+
       @media (prefers-color-scheme: light) {
         background: $light-background;
         color: $light-color-secondary;
       }
-    
+
       [data-theme=dark] & {
         background: $dark-background;
         color: $dark-color-secondary;
       }
-    
+
       [data-theme=light] & {
         background: $light-background;
         color: $light-color-secondary;

@@ -2,13 +2,11 @@
     {{ $paginator := .Paginate .Data.Pages }}
 
     <main class="posts">
-        <h1>{{ .Title }}</h1>
+      <h1>{{ .Title }}</h1>
 
-        {{ if .Content }}
-            <div class="content">{{ .Content }}</div>
-        {{ end }}
+      {{ .Content }}
 
-        {{ partial "posts.html" $paginator.Pages }}
-    {{ partial "pagination-list.html" . }}
+      {{ partial "posts.html" $paginator.Pages }}
+      {{ partial "pagination-list.html" . }}
     </main>
 {{ end }}

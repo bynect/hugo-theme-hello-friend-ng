@@ -112,7 +112,8 @@ button.search-dropdown-reset {
 
 // Kinda sus
 .search-modal {
-  max-width: #{'max(720px, 40vh)'};
+  width: 100%;
+  max-width: #{$max-size};
   margin: auto;
   position: relative !important;
   left: 0;

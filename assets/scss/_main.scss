@@ -107,6 +107,7 @@ h4 {
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 img {
@@ -432,5 +433,5 @@ hr {
 
 main {
   width: 100%;
-  max-width: #{'max(720px, 40%)'};
+  max-width: #{$max-size};
 }

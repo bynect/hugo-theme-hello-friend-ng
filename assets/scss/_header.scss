@@ -38,8 +38,8 @@
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
-    width: 760px;
-    max-width: 100%;
+    width: 100%;
+    max-width: #{$max-size};
   }
 
   &__toggles {
