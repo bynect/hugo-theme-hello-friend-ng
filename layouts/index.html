@@ -46,7 +46,7 @@
 
                       <div class="tags">
                         {{- range .Params.tags -}}
-                          <span class="tag-pill">{{.}}</span>
+                          <span class="tag-pill tag-{{urlize .}}">{{.}}</span>
                         {{ end }}
                       </div>
                     </div>

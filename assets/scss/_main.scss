@@ -428,20 +428,3 @@ hr {
   background-size: cover;
   background-position: center center;
 }
-
-.tag-pill {
-  display: inline-block;
-  padding: 0.25em 0.75em;
-  margin: 0.2em;
-  font-size: 0.85em;
-  background-color: #eee;
-  color: #333;
-  border-radius: 9999px; /* makes it pill-shaped */
-  text-decoration: none;
-  transition: background-color 0.2s;
-}
-
-.tag-pill:hover {
-  background-color: #ccc;
-}
-

@@ -1,0 +1,62 @@
+.tag-pill {
+  display: inline-block;
+  padding: 0.25em 0.75em;
+  margin: 0.2em;
+  font-size: 0.9;
+  border-radius: 9999px;
+  text-decoration: none;
+
+  background-color: $light-background-secondary;
+  color: $light-color-variant;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: $dark-background-secondary;
+    color: $dark-color-variant;
+  }
+
+  @media (prefers-color-scheme: light) {
+    background-color: $light-background-secondary;
+    color: $light-color-variant;
+  }
+
+  [data-theme=dark] & {
+    background-color: $dark-background-secondary;
+    color: $dark-color-variant;
+  }
+
+  [data-theme=light] & {
+    background-color: $light-background-secondary;
+    color: $light-color-variant;
+  }
+}
+
+.tag-pwn {
+  background-color: #FF8C00 !important;
+
+  &::before {
+    content: '🔧';
+    margin-right: 0.4em;
+    filter: grayscale(100%);
+  }
+}
+
+
+.tag-web {
+  background-color: #008B8B !important;
+
+  &::before {
+    content: '🌐';
+    margin-right: 0.4em;
+    filter: grayscale(100%);
+  }
+}
+
+.tag-reverse {
+  background-color: #16a085 !important;
+
+  &::before {
+    content: '🧩';
+    margin-right: 0.4em;
+    filter: grayscale(100%);
+  }
+}
