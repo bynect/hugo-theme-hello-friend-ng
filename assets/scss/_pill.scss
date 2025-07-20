@@ -7,7 +7,7 @@
   text-decoration: none;
 
   background-color: $light-background-secondary;
-  color: $light-color-variant;
+  color: $light-color;
 
   @media (prefers-color-scheme: dark) {
     background-color: $dark-background-secondary;
@@ -16,7 +16,7 @@
 
   @media (prefers-color-scheme: light) {
     background-color: $light-background-secondary;
-    color: $light-color-variant;
+    color: $light-color;
   }
 
   [data-theme=dark] & {
@@ -26,37 +26,61 @@
 
   [data-theme=light] & {
     background-color: $light-background-secondary;
-    color: $light-color-variant;
+    color: $light-color;
+  }
+}
+
+@mixin tag-pill-icon($unicode, $light-bg, $dark-bg) {
+  background-color: $light-bg;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: $dark-bg;
+  }
+
+  @media (prefers-color-scheme: light) {
+    background-color: $light-bg;
+  }
+
+  [data-theme=dark] & {
+    background-color: $dark-bg;
+  }
+
+  [data-theme=light] & {
+    background-color: $light-bg;
+  }
+
+  &::before {
+    content: $unicode;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 0.4em;
   }
 }
 
 .tag-pwn {
-  background-color: #FF8C00 !important;
-
-  &::before {
-    content: '🔧';
-    margin-right: 0.4em;
-    filter: grayscale(100%);
-  }
+  @include tag-pill-icon("\f0e7", #ff9a1f, #c25e0c);
 }
 
-
 .tag-web {
-  background-color: #008B8B !important;
-
-  &::before {
-    content: '🌐';
-    margin-right: 0.4em;
-    filter: grayscale(100%);
-  }
+  @include tag-pill-icon("\f0ac", #46ade3, #0572ad);
 }
 
 .tag-reverse {
-  background-color: #16a085 !important;
+  @include tag-pill-icon("\f0ad", #16a085, #16a085);
+}
 
-  &::before {
-    content: '🧩';
-    margin-right: 0.4em;
-    filter: grayscale(100%);
-  }
+.tag-hardware {
+  @include tag-pill-icon("\f2db", #FF8C00, #FF8C00);
+}
+
+.tag-misc {
+  @include tag-pill-icon("\f059", #f5d738, #d1a402);
+}
+
+.tag-crypto {
+  @include tag-pill-icon("\f023", #e073eb, #A21CAF);
+}
+
+.tag-forensics {
+  @include tag-pill-icon("\f577", #fc7eb9, #b81161);
 }
