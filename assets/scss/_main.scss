@@ -432,5 +432,5 @@ hr {
 
 main {
   width: 100%;
-  max-width: 45%;
+  max-width: #{'max(720px, 40%)'};
 }

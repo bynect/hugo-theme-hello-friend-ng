@@ -32,8 +32,8 @@ $media-size-tablet: "(max-width: 900px)";
 
 /* Variables for js, must be the same as these in @custom-media queries */
 :root {
-  --phoneWidth: (max-width: 684px);
-  --tabletWidth: (max-width: 900px);
+  --phoneWidth: #{$media-size-phone};
+  --tabletWidth: #{$media-size-tablet};
 }
 
 /* Content */
