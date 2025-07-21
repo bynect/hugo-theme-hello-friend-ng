@@ -7,7 +7,7 @@
   --search-result-bg: #{$light-background};
   --search-result-bg-active: var(--search-primary);
   --search-result-color: var(--search-color);
-  --search-result-color-active: #{$accent-color};
+  --search-result-color-active: #{$light-background-header};
   --search-result-color-secondary: var(--search-color-secondary);
   --search-result-color-secondary-active: #{$light-background-header};
   --search-result-highlight-bg: inherit;
@@ -24,7 +24,7 @@
   --search-result-bg: #{$dark-background};
   --search-result-bg-active: var(--search-primary);
   --search-result-color: var(--search-color);
-  --search-result-color-active: #{$accent-color};
+  --search-result-color-active: #{$dark-background-header};
   --search-result-color-secondary: var(--search-color-secondary);
   --search-result-color-secondary-active: #{$dark-background-header};
   --search-result-highlight-bg: inherit;
@@ -115,7 +115,7 @@ button.search-dropdown-reset {
   width: 100%;
   max-width: #{$max-size};
   margin: auto;
-  position: fixed !important;
+  position: relative !important;
   left: 0;
   top: -10em;
   border-radius: 8px;

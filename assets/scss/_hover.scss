@@ -1,4 +1,4 @@
-a:hover:not(.post-title) {
+a:hover:not(.post-title):not(.search-result) {
   color: $light-hover-color;
 
   & .tag-pill {
