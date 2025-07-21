@@ -1,3 +1,6 @@
+$light-tag-bg: $light-border-color;
+$dark-tag-bg: $dark-border-color;
+
 .tag-pill {
   display: inline-block;
   padding: 0.25em 0.75em;
@@ -6,27 +9,27 @@
   border-radius: 9999px;
   text-decoration: none;
 
-  background-color: $light-background-secondary;
-  color: $light-color;
+  background-color: $light-tag-bg;
+  color: $light-color-variant;
 
   @media (prefers-color-scheme: dark) {
-    background-color: $dark-background-secondary;
+    background-color: $dark-tag-bg;
     color: $dark-color-variant;
   }
 
   @media (prefers-color-scheme: light) {
-    background-color: $light-background-secondary;
-    color: $light-color;
+    background-color: $light-tag-bg;
+    color: $light-color-variant;
   }
 
   [data-theme=dark] & {
-    background-color: $dark-background-secondary;
+    background-color: $dark-tag-bg;
     color: $dark-color-variant;
   }
 
   [data-theme=light] & {
-    background-color: $light-background-secondary;
-    color: $light-color;
+    background-color: $light-tag-bg;
+    color: $light-color-variant;
   }
 }
 
@@ -69,10 +72,6 @@
   @include tag-pill-icon("\f0ad", #1cd9b4, #16a085);
 }
 
-.tag-hardware {
-  @include tag-pill-icon("\f2db", #f56e85, #d11d3c);
-}
-
 .tag-misc {
   @include tag-pill-icon("\f059", #f5d738, #d1a402);
 }
@@ -83,4 +82,16 @@
 
 .tag-forensics {
   @include tag-pill-icon("\f577", #fc7eb9, #b81161);
+}
+
+.tag-hardware {
+  @include tag-pill-icon("\f2db", #b8f76f, #5a8f1b);
+}
+
+.tag-fullpwn {
+  @include tag-pill-icon("\f504", #fa5a63, #d11d3c);
+}
+
+.tag-infra {
+  @include tag-pill-icon("\f12e", #66ebf2, #07838a);
 }

@@ -24,13 +24,14 @@
 
                 {{- if .Params.authors -}}
                 {{- $site := .Site -}}
-                <div class="post-authors"> by
-                  {{- range $index, $author := .Params.authors -}}
-                    {{- if $index }}, {{ end -}}
-
-                    {{ partial "author.html" (dict "author" $author "site" $site) }}
-                  {{- end -}}
-                </div>
+                  <div class="post-authors">
+                    <span class="post-authors__label">by</span>
+                    <span class="post-authors__names">
+                      {{- range $index, $author := .Params.authors -}}
+                        {{- partial "author.html" (dict "author" $author "site" $site) -}}
+                      {{- end -}}
+                    </span>
+                  </div>
                 {{- end -}}
               </div>
             </div>

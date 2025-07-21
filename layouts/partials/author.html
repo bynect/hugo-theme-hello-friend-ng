@@ -1,21 +1,17 @@
 {{- $author := .author -}}
 {{- $site := .site -}}
-
 {{ $category := $site.Params.author.category }}
 {{- $slug := $author | urlize -}}
 {{- $memberPage := "" -}}
-
 {{- if $category -}}
+{{- $memberPage = $site.GetPage (printf "%s/%s" $category $slug) -}}
 <a class="author-link" href="{{ $category | absLangURL }}/{{ $slug }}/">
-  {{- $memberPage = $site.GetPage (printf "%s/%s" $category $slug) -}}
 {{- end -}}
-
-{{- with $memberPage }}
-  {{- with .Params.avatar }}
+{{- with $memberPage -}}
+  {{- with .Params.avatar -}}
     <img src="{{ . | relURL }}" class="author-icon" />
-  {{- end }}
-{{- end }}
-
+  {{- end -}}
+{{- end -}}
 <strong class="author-name">{{- $author -}}</strong>
 {{- if $category -}}
 </a>
