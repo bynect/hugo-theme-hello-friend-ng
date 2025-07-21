@@ -23,21 +23,13 @@
                 </span>
 
                 {{- if .Params.authors -}}
+                {{- $site := .Site -}}
                 <div class="post-authors"> by
-                  {{ $category := .Site.Params.author.category }}
                   {{- range $index, $author := .Params.authors -}}
                     {{- if $index }}, {{ end -}}
 
-                    {{- if $category -}}
-                    <a href="{{ $category | absLangURL }}/{{ . | urlize }}/">
-                    {{- end -}}
-
-                    {{- $author -}}
-
-                    {{- if $category -}}
-                    </a>
-                    {{- end -}}
-                  {{- end }}
+                    {{ partial "author.html" (dict "author" $author "site" $site) }}
+                  {{- end -}}
                 </div>
                 {{- end -}}
               </div>

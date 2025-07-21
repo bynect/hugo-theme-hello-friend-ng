@@ -77,13 +77,14 @@
       @include dimmed;
     }
 
-
     &-authors {
-      display: inline-block;
+      display: inline-flex;
       min-width: 0;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      align-items: center;
+      gap: 0.5rem;
     }
   }
 }
