@@ -23,7 +23,22 @@
                 </span>
 
                 {{- if .Params.authors -}}
-                <div class="post-authors">by {{ delimit (apply .Params.authors "printf" "<i>%s</i>" ".") ", " | safeHTML }}</div>
+                <div class="post-authors"> by
+                  {{ $category := .Site.Params.author.category }}
+                  {{- range $index, $author := .Params.authors -}}
+                    {{- if $index }}, {{ end -}}
+
+                    {{- if $category -}}
+                    <a href="{{ $category | absLangURL }}/{{ . | urlize }}/">
+                    {{- end -}}
+
+                    {{- $author -}}
+
+                    {{- if $category -}}
+                    </a>
+                    {{- end -}}
+                  {{- end }}
+                </div>
                 {{- end -}}
               </div>
             </div>
