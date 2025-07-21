@@ -12,12 +12,12 @@
             {{- end -}}
             {{ end }}
 
-            <h1 style="margin-top:0;">{{ .Site.Title }}</h1>
+            <h1 class="variant">{{ .Site.Title }}</h1>
 
             {{ partial "subtitle.html" . }}
 
             {{- with .Site.Params.social }}
-                <div style="font-size: 1.2em;">
+                <div class="variant" style="font-size: 1.25em;">
                     {{ partial "social-icons.html" . }}
                 </div>
             {{- end }}

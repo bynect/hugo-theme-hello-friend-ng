@@ -192,7 +192,7 @@ figure {
   }
 }
 
-em, i, strong {
+em, i, strong, .variant {
   // Default
   color: $light-color-variant;
 
@@ -205,11 +205,11 @@ em, i, strong {
   }
 
   [data-theme=dark] & {
-    color: white;
+    color: $dark-color-variant;
   }
 
   [data-theme=light] & {
-    color: black;
+    color: $light-color-variant;
   }
 }
 
