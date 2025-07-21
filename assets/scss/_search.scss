@@ -115,8 +115,13 @@ button.search-dropdown-reset {
   width: 100%;
   max-width: #{$max-size};
   margin: auto;
-  position: relative !important;
+  position: fixed !important;
   left: 0;
   top: -10em;
   border-radius: 8px;
+
+  @media #{$media-size-tablet} {
+    top: 0;
+    border-radius: 0;
+  }
 }
