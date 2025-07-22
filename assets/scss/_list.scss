@@ -126,32 +126,32 @@
     //  gap: 0.5rem;
     //
     //}
+  }
+}
 
-    &-authors {
-      display: flex;
-      width: 100%;
-      flex: 1 1 auto;
-      min-width: 0;
-      align-items: center;
-      gap: 0.5em;
+.post-authors {
+  display: flex;
+  width: 100%;
+  flex: 1 1 auto;
+  min-width: 0;
+  align-items: center;
+  gap: 0.5em;
 
-      &__label {
-        flex: 0 0 auto;
-        white-space: nowrap;
-      }
+  &__label {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
 
-      &__names {
-        /* now this really is the sole flex‑item that clips */
-        flex: 1 1 0;
-        min-width: 0;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+  &__names {
+    /* now this really is the sole flex‑item that clips */
+    flex: 1 1 0;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
-        display: inline-flex;  /* keep your icon+name alignment */
-        align-items: center;
-        gap: 0.5em;
-      }
-    }
+    display: inline-flex;  /* keep your icon+name alignment */
+    align-items: center;
+    gap: 0.5em;
   }
 }
